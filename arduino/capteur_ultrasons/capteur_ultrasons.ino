@@ -1,4 +1,4 @@
-/* Capteur Ultrason HC-SR04 */
+/* Capteur Ultrasons HC-SR04 */
 /* Note : passer les écritures dans le port série en commentaire si liaison avec processing */
 
 /* Définition des broches utilisées */

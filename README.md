@@ -1,2 +1,2 @@
-# detecteur_infrasons_tpe
+# detecteur_ultrasons_tpe
 2015-2016 School Project
