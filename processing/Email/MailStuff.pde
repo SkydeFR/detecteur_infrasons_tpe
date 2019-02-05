@@ -30,11 +30,11 @@ void sendMail() {
 
     // Subject and body
     message.setSubject("Alerte intrusion !");
-    message.setText("Une présence à été détectée chez vous par le capteur ultrason !");
+    message.setText("Une présence à été détectée chez vous par le capteur ultrasons !");
 
     // We can do more here, set the date, the headers, etc.
     Transport.send(message);
-    println("Mail envoyé!");
+    println("Email envoyé !");
   }
   catch(Exception e)
   {

@@ -4,34 +4,32 @@
 
 import javax.mail.*;
 import javax.mail.internet.*;
-import processing.serial.*; //add
-char inBuffer; //add
-Serial myPort; //add
+import processing.serial.*;
+char inBuffer; //On défini une variable de type caractère
+Serial myPort;
 
 void setup() {
-  myPort = new Serial(this, Serial.list()[1], 9600); //add
+  myPort = new Serial(this, Serial.list()[1], 9600); //On communique avec le port série d'Arduino
   //println(Serial.list());  permet de lister les ports existants
 }
 
 void draw()
 {
-  if(myPort.available() > 0) //si il y a reception sur le port
+  if(myPort.available() > 0) //S'il y a reception possible sur le port
   {
-    inBuffer = myPort.readChar(); //on inscrit dans une variable l'octet reçu
-    println(inBuffer); //au passage on l'ecrit pour qu'il soit visible
+    inBuffer = myPort.readChar(); //On stock dans la variable l'octet reçu par le port série
+    println(inBuffer); //On affiche le contenu de la variable
   }
   {
-   println("Aucu port disponible"); 
+   println("Aucun port disponible"); 
   }
   
-  // Function to check mail
-  //checkMail();
-  
-  if(inBuffer == 'A') //si le contenu du buffer vaut le caratère : A
+  //Si le contenu de la variable baut le caractère : 'A' (désignant la nécessité d'envoyer une alerte)
+  //Alors on envoie un email d'alerte
+  if(inBuffer == 'A')
   {
-  // Function to send mail
-  sendMail();
-  noLoop();
+	  sendMail(); //Envoie de l'email
+	  exit(); //Fin du programme
   }
   
 }
